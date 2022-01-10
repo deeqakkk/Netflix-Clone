@@ -2,9 +2,24 @@
     color: white;
     font-size: 14px;
     .container {
-        padding: 0 15px;
-        img {
-            height: 25px;
+        padding: 0 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+        .left {
+            display: flex;
+            align-items: center;
+            img {
+                height: 25px;
+            }
+        }
+        .right {
+            display: flex;
+            height: 30px;
+            border-radius: 5px;
+            object-fit: cover;
+            cursor: pointer;
         }
     }
 }
