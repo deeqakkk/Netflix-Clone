@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 // this file is for user verification
 function verify(req, res, next) {
     // authheader is a passing token in the form of array
-    // e.g header 
+    // e.g header
     // key : value
     // token   : Bearer JWT token
 
@@ -13,7 +13,7 @@ function verify(req, res, next) {
 
         jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
             if (err) res.status(403).json({ message: "Token is not valid" });
-            // once verified the token is valid we will go to next 
+            // once verified the token is valid we will go to next
             req.user = user;
             next();
         });
