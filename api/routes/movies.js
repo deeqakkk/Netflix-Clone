@@ -3,7 +3,9 @@ const Movie = require("../models/Movie");
 const verify = require("../verifyToken");
 // CREATE
 router.post("/", verify, async(req, res) => {
+
     if (req.user.isAdmin) {
+
         const newMovie = new Movie(req.body);
         try {
             const savedMovie = await newMovie.save();
@@ -11,7 +13,7 @@ router.post("/", verify, async(req, res) => {
         } catch (err) {
             res.status(500).json(err);
         }
-    } else res.status.send(403).json("You are not authorized to do this!");
+    } else res.status(403).json("You are not authorized to do this!");
 });
 
 // UPDATE
