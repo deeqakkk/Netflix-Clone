@@ -16,7 +16,10 @@ function verify(req, res, next) {
             // once verified the token is valid we will go to next
             req.user = user;
             next();
+
+
         });
+
     } else return res.status(401).json({ message: "You are not authenticated!" });
 }
 
